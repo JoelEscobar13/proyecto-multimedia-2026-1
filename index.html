@@ -6,269 +6,7 @@
     <title>Copa Mundial 2026 | SPA</title>
     <!-- Fuente moderna para darle un toque deportivo y profesional -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
-    
-    <style>
-        /* =========================================
-           1. VARIABLES Y RESET (Mobile First)
-        ========================================= */
-        :root {
-            --color-primario: #4A154B; /* Morado Mundial 2026 */
-            --color-secundario: #11C8A3; /* Verde Neón */
-            --color-oscuro: #1A1A1A;
-            --color-claro: #F5F5F5;
-            --fuente-principal: 'Montserrat', sans-serif;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: var(--fuente-principal);
-            background-color: var(--color-claro);
-            color: var(--color-oscuro);
-            line-height: 1.6;
-        }
-
-        /* =========================================
-           2. ESTILOS SEMÁNTICOS (Header, Nav, Footer)
-        ========================================= */
-        header {
-            background-color: var(--color-primario);
-            color: white;
-            padding: 1rem;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
-
-        .header-container {
-            display: flex;
-            flex-direction: column; /* Mobile first: apilado */
-            align-items: center;
-            gap: 1rem;
-        }
-
-        h1 {
-            font-weight: 900;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            text-align: center;
-        }
-
-        h1 span {
-            color: var(--color-secundario);
-        }
-
-        nav ul {
-            list-style: none;
-            display: flex;
-            gap: 15px;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-
-        nav a {
-            color: white;
-            text-decoration: none;
-            font-weight: 700;
-            padding: 0.5rem 1rem;
-            border-radius: 4px;
-            transition: background 0.3s ease;
-        }
-
-        nav a:hover, nav a.activo {
-            background-color: var(--color-secundario);
-            color: var(--color-primario);
-        }
-
-        footer {
-            background-color: var(--color-oscuro);
-            color: white;
-            text-align: center;
-            padding: 2rem;
-            margin-top: auto;
-        }
-
-        /* =========================================
-           3. ESTILOS DE LA SPA Y SECCIONES
-        ========================================= */
-        main {
-            min-height: 80vh;
-            padding: 2rem 1rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        /* Ocultar todas las secciones por defecto */
-        .seccion-spa {
-            display: none;
-            animation: fadeIn 0.5s ease-in-out;
-        }
-
-        /* Clase activa controlada por JavaScript */
-        .seccion-spa.activa {
-            display: block; /* O flex/grid dependiendo de la sección */
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        h2 {
-            color: var(--color-primario);
-            margin-bottom: 1.5rem;
-            font-size: 2rem;
-            border-bottom: 3px solid var(--color-secundario);
-            display: inline-block;
-        }
-
-        /* =========================================
-           4. DISEÑO DE SECCIONES (Flexbox y Grid)
-        ========================================= */
-        
-        /* Sección Inicio */
-        #inicio {
-            text-align: center;
-        }
-        .hero-banner {
-            background-color: var(--color-oscuro);
-            color: white;
-            padding: 3rem 1rem;
-            border-radius: 10px;
-            margin-bottom: 2rem;
-        }
-
-        /* Sección Sedes (CSS Grid + Hipermedios) */
-        .grid-sedes {
-            display: grid;
-            grid-template-columns: 1fr; /* Mobile first: 1 columna */
-            gap: 2rem;
-        }
-
-        .tarjeta-sede {
-            background: white;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-        }
-
-        .tarjeta-sede img {
-            width: 100%;
-            height: 250px;
-            object-fit: cover;
-            display: block;
-        }
-
-        .info-sede {
-            padding: 1.5rem;
-        }
-
-        /* Botón interactivo solicitado en la rúbrica */
-        .btn-interactivo {
-            background-color: var(--color-primario);
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            font-size: 1rem;
-            font-weight: bold;
-            cursor: pointer;
-            border-radius: 5px;
-            margin-top: 1rem;
-            width: 100%;
-            transition: background 0.3s;
-        }
-
-        .btn-interactivo:hover {
-            background-color: #310c32;
-        }
-
-        .panel-oculto {
-            display: none; /* Oculto por defecto */
-            background-color: var(--color-claro);
-            padding: 1rem;
-            margin-top: 1rem;
-            border-left: 4px solid var(--color-secundario);
-            font-size: 0.9rem;
-        }
-
-        /* Sección Grupos (Flexbox) */
-        .flex-grupos {
-            display: flex;
-            flex-direction: column; /* Mobile: apilado */
-            gap: 1.5rem;
-        }
-
-        .grupo-card {
-            background: white;
-            padding: 1.5rem;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-            border-top: 5px solid var(--color-primario);
-        }
-
-        /* Sección Contacto */
-        .formulario-contacto {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-            max-width: 500px;
-            margin: 0 auto;
-            background: white;
-            padding: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        }
-
-        .formulario-contacto input, .formulario-contacto button {
-            padding: 10px;
-            font-size: 1rem;
-            font-family: var(--fuente-principal);
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-
-        .formulario-contacto button {
-            background-color: var(--color-secundario);
-            color: var(--color-primario);
-            font-weight: 900;
-            border: none;
-            cursor: pointer;
-            text-transform: uppercase;
-        }
-
-        /* =========================================
-           5. MEDIA QUERIES (Desktop Responsivo)
-        ========================================= */
-        @media (min-width: 768px) {
-            .header-container {
-                flex-direction: row;
-                justify-content: space-between;
-            }
-
-            .grid-sedes {
-                grid-template-columns: repeat(2, 1fr); /* Desktop: 2 columnas */
-            }
-
-            .flex-grupos {
-                flex-direction: row; /* Desktop: Flex en fila */
-                justify-content: space-between;
-            }
-            .grupo-card {
-                flex: 1;
-            }
-        }
-
-        @media (min-width: 1024px) {
-            .grid-sedes {
-                grid-template-columns: repeat(3, 1fr); /* Pantallas grandes: 3 col */
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
 
@@ -293,11 +31,11 @@
         <!-- SECCIÓN 1: INICIO -->
         <section id="inicio" class="seccion-spa activa">
             <div class="hero-banner">
-                <h2 style="color: white; border-color: var(--color-secundario);">Bienvenidos al Evento Más Grande</h2>
+                <h2 class="hero-title">Bienvenidos al Evento Más Grande</h2>
                 <p>Canadá, México y Estados Unidos se unen para organizar la primera Copa del Mundo con 48 equipos. Prepárate para vivir la pasión del fútbol en Norteamérica.</p>
             </div>
             
-            <article style="background: white; padding: 2rem; border-radius: 8px;">
+            <article class="contenido-inicio">
                 <h3>Formato del Torneo</h3>
                 <p>Por primera vez en la historia, el torneo se expandirá para incluir 48 selecciones nacionales, divididas en 12 grupos de 4 equipos. Los dos primeros de cada grupo y los ocho mejores terceros avanzarán a una nueva ronda de dieciseisavos de final.</p>
             </article>
@@ -316,7 +54,7 @@
                         <p>El legendario Estadio Azteca hará historia siendo sede de su tercera Copa del Mundo.</p>
                         
                         <!-- RÚBRICA: Botón interactivo que muestra/oculta contenido -->
-                        <button class="btn-interactivo" onclick="toggleDetalles('panel-mexico')">Ver Detalles del Estadio</button>
+                        <button class="btn-interactivo" data-panel="panel-mexico">Ver Detalles del Estadio</button>
                         
                         <!-- Panel a mostrar/ocultar con JS -->
                         <div id="panel-mexico" class="panel-oculto">
@@ -335,7 +73,7 @@
                         <h3>Nueva York / Nueva Jersey</h3>
                         <p>El moderno estadio albergará la gran final del torneo, siendo el epicentro deportivo de EE.UU.</p>
                         
-                        <button class="btn-interactivo" onclick="toggleDetalles('panel-ny')">Ver Detalles del Estadio</button>
+                        <button class="btn-interactivo" data-panel="panel-ny">Ver Detalles del Estadio</button>
                         
                         <div id="panel-ny" class="panel-oculto">
                             <strong>MetLife Stadium</strong><br>
@@ -353,7 +91,7 @@
                         <h3>Toronto</h3>
                         <p>Canadá debuta como sede organizadora de una Copa del Mundo masculina aportando instalaciones de primera.</p>
                         
-                        <button class="btn-interactivo" onclick="toggleDetalles('panel-toronto')">Ver Detalles del Estadio</button>
+                        <button class="btn-interactivo" data-panel="panel-toronto">Ver Detalles del Estadio</button>
                         
                         <div id="panel-toronto" class="panel-oculto">
                             <strong>BMO Field</strong><br>
@@ -368,30 +106,28 @@
         <!-- SECCIÓN 3: GRUPOS (Flexbox) -->
         <section id="grupos" class="seccion-spa">
             <h2>Distribución de Cupos</h2>
-            <p style="margin-bottom: 2rem;">Así se repartirán los 48 lugares por confederación continental:</p>
+            <p class="intro-grupos">Así se repartirán los 48 lugares por confederación continental:</p>
             
             <div class="flex-grupos">
                 <article class="grupo-card">
-                    <h3 style="color: var(--color-secundario);">UEFA (Europa)</h3>
+                    <h3 class="grupo-titulo">UEFA (Europa)</h3>
                     <p><strong>16 Plazas directas.</strong> Europa sigue siendo el continente con mayor representación en la fase final del torneo.</p>
                 </article>
                 <article class="grupo-card">
-                    <h3 style="color: var(--color-secundario);">CONMEBOL (Sudamérica)</h3>
+                    <h3 class="grupo-titulo">CONMEBOL (Sudamérica)</h3>
                     <p><strong>6 Plazas directas + 1 Repechaje.</strong> Una de las eliminatorias más difíciles del mundo amplía sus clasificados.</p>
                 </article>
                 <article class="grupo-card">
-                    <h3 style="color: var(--color-secundario);">CONCACAF (Norte/Centroamérica)</h3>
-                    <p><strong>6 Plazas directas</strong> (incluyendo a los 3 anfitriones) + 2 puestos de repechaje intercontinental.</p>
-                </article>
+                    <h3 class="grupo-titulo">CONCACAF (Norte/Centroamérica)</h3>
             </div>
         </section>
 
         <!-- SECCIÓN 4: CONTACTO -->
         <section id="contacto" class="seccion-spa">
             <h2>Boletín de Entradas</h2>
-            <p style="text-align: center; margin-bottom: 2rem;">Regístrate para recibir notificaciones sobre la venta oficial de tickets de la FIFA.</p>
+            <p class="intro-contacto">Regístrate para recibir notificaciones sobre la venta oficial de tickets de la FIFA.</p>
             
-            <form class="formulario-contacto" onsubmit="prevenirEnvio(event)">
+            <form class="formulario-contacto">
                 <label for="nombre">Nombre completo:</label>
                 <input type="text" id="nombre" placeholder="Ej: Juan Pérez" required>
                 
@@ -409,63 +145,6 @@
         <p>&copy; 2026 Proyecto SPA Multimedia. Creado para evaluación académica.</p>
     </footer>
 
-    <!-- =========================================
-         JAVASCRIPT PARA LA LÓGICA SPA Y DOM
-    ========================================= -->
-    <script>
-        /**
-         * RÚBRICA 3: Navegación SPA con JavaScript (Manipulación del DOM, Event Listeners)
-         */
-        document.addEventListener('DOMContentLoaded', () => {
-            const enlacesNav = document.querySelectorAll('.nav-link');
-            const secciones = document.querySelectorAll('.seccion-spa');
-
-            enlacesNav.forEach(enlace => {
-                enlace.addEventListener('click', function(e) {
-                    e.preventDefault(); // Evita recargar la página
-
-                    // 1. Quitar clase activa de todos los enlaces
-                    enlacesNav.forEach(nav => nav.classList.remove('activo'));
-                    // Añadir clase activa al enlace clicado
-                    this.classList.add('activo');
-
-                    // 2. Obtener el ID de la sección objetivo
-                    const targetId = this.getAttribute('data-target');
-
-                    // 3. Ocultar todas las secciones (classList.remove)
-                    secciones.forEach(sec => sec.classList.remove('activa'));
-
-                    // 4. Mostrar solo la sección seleccionada (classList.add)
-                    const seccionActiva = document.getElementById(targetId);
-                    if(seccionActiva) {
-                        seccionActiva.classList.add('activa');
-                    }
-                });
-            });
-        });
-
-        /**
-         * RÚBRICA 4: Inclusión de Hipermedios (Botón interactivo ocultar/mostrar)
-         */
-        function toggleDetalles(idPanel) {
-            const panel = document.getElementById(idPanel);
-            
-            // Evaluamos el estado actual usando getComputedStyle o comprobando style.display
-            if (window.getComputedStyle(panel).display === 'none') {
-                panel.style.display = 'block'; // Mostramos el elemento
-            } else {
-                panel.style.display = 'none'; // Ocultamos el elemento
-            }
-        }
-
-        /**
-         * Función adicional para evitar que el formulario recargue la SPA al hacer Submit
-         */
-        function prevenirEnvio(event) {
-            event.preventDefault(); // Evita el comportamiento por defecto (recarga)
-            alert("¡Gracias! Te has suscrito exitosamente para recibir información del Mundial 2026.");
-            event.target.reset(); // Limpia el formulario
-        }
-    </script>
+    <script src="js/app.js"></script>
 </body>
 </html>
