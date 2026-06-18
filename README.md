@@ -17,7 +17,7 @@ Dado que este proyecto está construido con tecnologías web base, no requiere d
 
 ### Opción 1: Ejecución Local (Método Directo)
 1. Descarga o clona la carpeta de este proyecto en tu computadora.
-2. Asegúrate de que los archivos `index.html`, `estilos.css` y `app.js` estén en la misma ruta.
+2. Asegúrate de que los archivos `index.html`, `style.css` y `app.js` estén en la misma ruta.
 3. Haz doble clic sobre el archivo `index.html`.
 4. El proyecto se abrirá y ejecutará automáticamente en tu navegador web predeterminado (Google Chrome, Firefox, Edge, etc.).
 
