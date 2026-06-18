@@ -1,15 +1,18 @@
 document.addEventListener('DOMContentLoaded', () => {
     const enlacesNav = document.querySelectorAll('.nav-link');
+    const enlacesSpa = document.querySelectorAll('[data-target]');
     const secciones = document.querySelectorAll('.seccion-spa');
     const botonesDetalles = document.querySelectorAll('[data-panel]');
     const formulario = document.querySelector('.formulario-contacto');
 
-    enlacesNav.forEach(enlace => {
+    enlacesSpa.forEach(enlace => {
         enlace.addEventListener('click', function(e) {
             e.preventDefault(); // Evita recargar la página
 
-            enlacesNav.forEach(nav => nav.classList.remove('activo'));
-            this.classList.add('activo');
+            if (this.classList.contains('nav-link')) {
+                enlacesNav.forEach(nav => nav.classList.remove('activo'));
+                this.classList.add('activo');
+            }
 
             const targetId = this.getAttribute('data-target');
             secciones.forEach(sec => sec.classList.remove('activa'));

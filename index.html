@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Copa Mundial 2026 | SPA</title>
+    <title>Rumbo Al 26</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/img/Icon.png">
     <!-- Fuente moderna para darle un toque deportivo y profesional -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
@@ -13,7 +15,7 @@
     <!-- RÚBRICA: Uso correcto de etiquetas semánticas HTML5 (header, nav) -->
     <header>
         <div class="header-container">
-            <h1>Mundial <span>2026</span></h1>
+            <h1>Rumbo Al <span>26</span></h1>
             <nav>
                 <ul>
                     <li><a href="#inicio" class="nav-link activo" data-target="inicio">Inicio</a></li>
@@ -48,7 +50,7 @@
                 
                 <!-- Sede 1 con imagen (Rúbrica: Inclusión de Hipermedios - 2 Imágenes mínimo) -->
                 <article class="tarjeta-sede">
-                    <img src="https://images.unsplash.com/photo-1518605368461-1ee7e5505413?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Estadio Azteca, México">
+                    <img src="/assets/img/Sede Mexico.webp" alt="Estadio Azteca, México">
                     <div class="info-sede">
                         <h3>Ciudad de México</h3>
                         <p>El legendario Estadio Azteca hará historia siendo sede de su tercera Copa del Mundo.</p>
@@ -68,7 +70,7 @@
 
                 <!-- Sede 2 -->
                 <article class="tarjeta-sede">
-                    <img src="https://images.unsplash.com/photo-1459865264687-595d652de67e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Estadio MetLife, Nueva York">
+                    <img src="/assets/img/Sede USA.jpg" alt="Estadio MetLife, Nueva York">
                     <div class="info-sede">
                         <h3>Nueva York / Nueva Jersey</h3>
                         <p>El moderno estadio albergará la gran final del torneo, siendo el epicentro deportivo de EE.UU.</p>
@@ -86,7 +88,7 @@
 
                 <!-- Sede 3 -->
                 <article class="tarjeta-sede">
-                    <img src="https://images.unsplash.com/photo-1556056504-5c7696c4c28d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Estadio de Toronto, Canadá">
+                    <img src="/assets/img/Sede Canada.jfif" alt="Estadio de Toronto, Canadá">
                     <div class="info-sede">
                         <h3>Toronto</h3>
                         <p>Canadá debuta como sede organizadora de una Copa del Mundo masculina aportando instalaciones de primera.</p>
@@ -110,15 +112,20 @@
             
             <div class="flex-grupos">
                 <article class="grupo-card">
+                    <img src="/assets/img/UEFA.jfif" alt="Selección de fútbol europea">
                     <h3 class="grupo-titulo">UEFA (Europa)</h3>
                     <p><strong>16 Plazas directas.</strong> Europa sigue siendo el continente con mayor representación en la fase final del torneo.</p>
                 </article>
                 <article class="grupo-card">
+                    <img src="/assets/img/Conmebol.jfif" alt="Selección de fútbol sudamericana">
                     <h3 class="grupo-titulo">CONMEBOL (Sudamérica)</h3>
                     <p><strong>6 Plazas directas + 1 Repechaje.</strong> Una de las eliminatorias más difíciles del mundo amplía sus clasificados.</p>
                 </article>
                 <article class="grupo-card">
+                    <img src="/assets/img/Concacaf.png" alt="Selección de fútbol de CONCACAF">
                     <h3 class="grupo-titulo">CONCACAF (Norte/Centroamérica)</h3>
+                    <p><strong>6 Plazas directas</strong> (incluyendo a los 3 anfitriones) + 2 puestos de repechaje intercontinental.</p>
+                </article>
             </div>
         </section>
 
@@ -142,7 +149,30 @@
 
     <!-- RÚBRICA: Semántica HTML5 -->
     <footer>
-        <p>&copy; 2026 Proyecto SPA Multimedia. Creado para evaluación académica.</p>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <h3>Mundial 2026</h3>
+                <p>Información, sedes y novedades sobre el torneo más grande de fútbol en Norteamérica.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Enlaces rápidos</h4>
+                <ul>
+                    <li><a href="#inicio" class="spa-link" data-target="inicio">Inicio</a></li>
+                    <li><a href="#sedes" class="spa-link" data-target="sedes">Sedes</a></li>
+                    <li><a href="#grupos" class="spa-link" data-target="grupos">Grupos</a></li>
+                    <li><a href="#contacto" class="spa-link" data-target="contacto">Contacto</a></li>
+                </ul>
+            </div>
+            <div class="footer-contacto">
+                <h4>Contacto</h4>
+                <p>proyecto2026@ejemplo.com</p>
+                <p>Tel: +52 55 1234 5678</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Rumbo Al 26. Todos los derechos reservados.</p>
+            <p>Diseñado y desarrollado por Joel Escobar.</p>
+        </div>
     </footer>
 
     <script src="js/app.js"></script>
