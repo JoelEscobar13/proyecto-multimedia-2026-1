@@ -4,6 +4,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const secciones = document.querySelectorAll('.seccion-spa');
     const botonesDetalles = document.querySelectorAll('[data-panel]');
     const formulario = document.querySelector('.formulario-contacto');
+    const navToggle = document.querySelector('.nav-toggle');
+    const navMenu = document.querySelector('.nav-menu');
 
     enlacesSpa.forEach(enlace => {
         enlace.addEventListener('click', function(e) {
@@ -21,8 +23,22 @@ document.addEventListener('DOMContentLoaded', () => {
             if(seccionActiva) {
                 seccionActiva.classList.add('activa');
             }
+
+            if (navMenu && navMenu.classList.contains('open')) {
+                navMenu.classList.remove('open');
+                if (navToggle) {
+                    navToggle.setAttribute('aria-expanded', 'false');
+                }
+            }
         });
     });
+
+    if (navToggle && navMenu) {
+        navToggle.addEventListener('click', () => {
+            const isOpen = navMenu.classList.toggle('open');
+            navToggle.setAttribute('aria-expanded', String(isOpen));
+        });
+    }
 
     botonesDetalles.forEach(boton => {
         boton.addEventListener('click', event => {
